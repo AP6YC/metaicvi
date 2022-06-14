@@ -3,13 +3,18 @@
 A Python implementation of the MetaICVI method.
 
 - [metaicvi](#metaicvi)
-- [Installation](#installation)
-- [History](#history)
-- [Usage](#usage)
+  - [Installation](#installation)
+  - [History](#history)
+  - [Usage](#usage)
 
-# Installation
+## Installation
 
-# History
+TODO
 
-# Usage
+## History
 
+TODO
+
+## Usage
+
+TODO
