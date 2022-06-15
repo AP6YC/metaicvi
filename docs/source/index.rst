@@ -15,7 +15,7 @@ Check out the :doc:`usage` section for further information, including the :ref:`
    :caption: Contents:
 
    usage
-
+   api
 
 Indices and tables
 ==================
