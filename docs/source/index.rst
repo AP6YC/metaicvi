@@ -16,6 +16,7 @@ Check out the :doc:`usage` section for further information, including the :ref:`
 
    usage
    api
+   reference/index
 
 Indices and tables
 ==================
