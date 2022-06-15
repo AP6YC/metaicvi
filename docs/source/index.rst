@@ -6,10 +6,15 @@
 Welcome to metaicvi's documentation!
 ====================================
 
+**metaicvi** (/meta'ICVI/) is a Python library for using the metaicvi method as an unsupervised learning and clustering metric.
+
+Check out the :doc:`usage` section for further information, including the :ref:`installation` instructions for the project.
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
+   usage
 
 
 Indices and tables
