@@ -6,8 +6,6 @@ Does things.
 And stuff.
 """
 
-asdf = 1
-
 def my_function():
     print("Hello world!")
     return

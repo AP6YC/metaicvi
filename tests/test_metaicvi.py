@@ -21,7 +21,7 @@ import pytest
 # LOCAL IMPORTS
 # --------------------------------------------------------------------------- #
 print(f"\nTesting path is: {os.getcwd()}")
-import src.metaicvi as mi
+import metaicvi as mi
 
 # --------------------------------------------------------------------------- #
 # TESTS
@@ -29,8 +29,7 @@ import src.metaicvi as mi
 
 class TestMetaICVI:
 
-    def test_identity(self):
-        assert 1 == 1
-
-    def test_mi(self):
-        assert mi.asdf == 1
+    def test_opts(self):
+        my_opts = mi.MetaICVIOpts()
+        print(my_opts)
+        # help(my_opts)
