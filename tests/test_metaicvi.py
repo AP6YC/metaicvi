@@ -32,4 +32,3 @@ class TestMetaICVI:
     def test_opts(self):
         my_opts = mi.MetaICVIOpts()
         print(my_opts)
-        # help(my_opts)
