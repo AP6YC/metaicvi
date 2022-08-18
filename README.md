@@ -2,6 +2,7 @@
 
 A Python implementation of the MetaICVI method.
 
+[![Documentation Status](https://readthedocs.org/projects/metaicvi/badge/?version=latest)](https://metaicvi.readthedocs.io/en/latest/?badge=latest)
 [![GitHub issues](https://img.shields.io/github/issues/AP6YC/metaicvi?style=flat-square)](https://github.com/AP6YC/metaicvi/issues)
 [![GitHub stars](https://img.shields.io/github/stars/AP6YC/metaicvi?style=flat-square)](https://github.com/AP6YC/metaicvi/stargazers)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/m/AP6YC/metaicvi?style=flat-square)
