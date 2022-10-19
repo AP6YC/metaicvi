@@ -1,0 +1,14 @@
+cvi
+param
+pytest
+pandas
+twine
+build
+sphinx
+sphinx-rtd-theme
+setuptools
+numpy
+tqdm
+scikit-learn
+jupyterlab
+flake8
