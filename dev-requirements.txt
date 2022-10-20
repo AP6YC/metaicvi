@@ -10,5 +10,7 @@ setuptools
 numpy
 tqdm
 scikit-learn
+scipy
+sktime
 jupyterlab
 flake8

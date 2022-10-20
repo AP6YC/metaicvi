@@ -2,3 +2,6 @@ cvi
 param
 tqdm
 scikit-learn
+sktime
+numpy
+scipy
