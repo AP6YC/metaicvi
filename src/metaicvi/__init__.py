@@ -12,6 +12,7 @@ import tqdm
 import sklearn
 from pathlib import Path
 
+
 class MetaICVIOpts(param.Parameterized):
     """MetaICVI options parameter container.
 

@@ -6,15 +6,16 @@ Does things.
 And stuff.
 """
 
+
 def my_function():
     print("Hello world!")
     return
+
 
 class ASDF():
 
     def __init__(self):
         self.data = []
-
 
 
 class InvalidKindError(Exception):

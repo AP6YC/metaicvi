@@ -9,17 +9,17 @@ from sktime.utils.data_processing import from_3d_numpy_to_nested
 
 
 class Meta_iCVI:
-    def __init__(self,window_size,icvi_a='iCH', icvi_b='iSIL'):
+    def __init__(self, window_size, icvi_a='iCH', icvi_b='iSIL'):
         self.icvi_a = iCVI(icvi_a)
         self.icvi_b = iCVI(icvi_b)
         self.classification_window_size = None
         self.correlation_history = []
         self.window_size = window_size
-        self.icvi_history = {'a':deque(window_size*[0.],window_size), 'b':deque(window_size*[0.],window_size)}
+        self.icvi_history = {'a': deque(window_size*[0.], window_size), 'b': deque(window_size*[0.], window_size)}
         self.labels = set()
         self.sample_counter = 0
 
-        self.rocket = Rocket(num_kernels=10000,random_state=111)
+        self.rocket = Rocket(num_kernels=10000, random_state=111)
         self.classifier = RidgeClassifierCV(alphas=np.logspace(-3, 3, 10), normalize=True)
         self.is_fit = False
 
@@ -34,15 +34,14 @@ class Meta_iCVI:
         self.labels = set()
         self.sample_counter = 0
 
-
-    def increment(self,sample,label,predict=True,numeric_prediction=False):
+    def increment(self, sample, label, predict=True, numeric_prediction=False):
         if label not in self.labels and label > len(self.labels):
             raise RuntimeError('Invalid Cluster ordering. Cluster {} is not ordered correctly with respect to exisiting clusters {}'.format(label, self.labels))
         self.sample_counter += 1
         self.labels.add(label)
-        self.icvi_a.update(sample,label)
+        self.icvi_a.update(sample, label)
         self.icvi_history['a'].append(self.icvi_a.output)
-        self.icvi_b.update(sample,label)
+        self.icvi_b.update(sample, label)
         self.icvi_history['b'].append(self.icvi_b.output)
 
         if self.sample_counter >= self.window_size:
@@ -69,7 +68,6 @@ class Meta_iCVI:
                 else:
                     return self.reverse_transform_partition_quality_predictions(partition_quality_prediction)
 
-
     def validate_partition_quality_labels(self, partition_quality_labels):
         unique_partition_labels = set(np.unique(partition_quality_labels))
         required_partition_labels = {'under', 'over', 'correct'}
@@ -85,27 +83,27 @@ class Meta_iCVI:
 
     def transform_partition_quality_labels(self, partition_quality_labels):
         transformed = [0]*len(partition_quality_labels)
-        key = {'under':-1,'over':1,'correct':0}
+        key = {'under': -1, 'over': 1, 'correct': 0}
         for i, label in enumerate(partition_quality_labels):
             transformed[i] = key[label]
         return np.array(transformed)
 
     def reverse_transform_partition_quality_predictions(self, partition_quality_predictions):
         transformed = [0]*len(partition_quality_predictions)
-        key = {-1:'under', 1:'over', 0:'correct'}
+        key = {-1: 'under', 1: 'over', 0: 'correct'}
         for i, pred in enumerate(partition_quality_predictions):
             transformed[i] = key[pred]
         return np.array(transformed)
 
-    def fit(self,samples_label_pairs, partition_quality_labels):
+    def fit(self, samples_label_pairs, partition_quality_labels):
         self.validate_partition_quality_labels(partition_quality_labels)
         if self.is_fit:
             raise RuntimeWarning('Classifier has already been fit. Fitting again will reset classifier')
         self.reset()
         correlation_samples = []
-        for (X,Y),z in zip(samples_label_pairs, partition_quality_labels):
-            for x,y in zip(X,Y):
-                self.increment(x,y,predict=False)
+        for (X, Y), z in zip(samples_label_pairs, partition_quality_labels):
+            for x, y in zip(X, Y):
+                self.increment(x, y, predict=False)
             correlation_samples.append(np.array(self.correlation_history))
             self.reset()
 

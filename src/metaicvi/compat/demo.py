@@ -8,13 +8,13 @@ from sklearn.model_selection import train_test_split
 from random import shuffle
 
 
-
 dataset_name = 'iris'
 examples_to_generate = {
     'under': 6,
     'correct': 6,
     'over': 6
 }
+
 
 def generate_data():
     data = Dataset(dataset_name)
@@ -51,7 +51,7 @@ def generate_data():
                 new_Y_train = KMeans(n_clusters=k).fit_predict(X_train)
 
             sidx = np.argsort(new_Y_train)
-            X_train = X_train[sidx,:]
+            X_train = X_train[sidx, :]
             Y_train = Y_train[sidx]
             new_Y_train = new_Y_train[sidx]
 
@@ -65,20 +65,20 @@ def generate_data():
     X_test = X_test[ridx, :]
     Y_test = Y_test[ridx]
     sidx = np.argsort(Y_test)
-    X_test = X_test[sidx,:]
+    X_test = X_test[sidx, :]
     Y_test = Y_test[sidx]
     testing_examples['correct'] = [np.array(X_test), np.array(Y_test)]
 
     new_Y_test = KMeans(n_clusters=2).fit_predict(X_test)
     sidx = np.argsort(new_Y_test)
-    X_test = X_test[sidx,:]
+    X_test = X_test[sidx, :]
     Y_test = Y_test[sidx]
     new_Y_test = new_Y_test[sidx]
     testing_examples['under'] = [np.array(X_test), np.array(new_Y_test)]
 
     new_Y_test = KMeans(n_clusters=n_clusters+2).fit_predict(X_test)
     sidx = np.argsort(new_Y_test)
-    X_test = X_test[sidx,:]
+    X_test = X_test[sidx, :]
     Y_test = Y_test[sidx]
     new_Y_test = new_Y_test[sidx]
     testing_examples['over'] = [np.array(X_test), np.array(new_Y_test)]
@@ -91,24 +91,18 @@ if __name__ == '__main__':
     sample_label_pairs, partition_quality_labels, testing_examples = generate_data()
 
     micvi = Meta_iCVI(window_size=15)
-    micvi.fit(sample_label_pairs,partition_quality_labels)
+    micvi.fit(sample_label_pairs, partition_quality_labels)
 
     for partition_quality, (X_test, Y_test) in testing_examples.items():
         predicition_history = []
-        for sample, label in zip(X_test[:,None],Y_test):
-            quality_pred = micvi.increment(sample,label, numeric_prediction=True)
+        for sample, label in zip(X_test[:, None], Y_test):
+            quality_pred = micvi.increment(sample, label, numeric_prediction=True)
             predicition_history.append(quality_pred)
         plt.figure()
         plt.hold = True
-        plt.plot(micvi.correlation_history,'r-')
-        plt.plot(predicition_history,'g-')
+        plt.plot(micvi.correlation_history, 'r-')
+        plt.plot(predicition_history, 'g-')
         plt.title('{} partition example'.format(partition_quality))
         plt.xlabel('Sample Number')
         plt.ylabel('Correlation / Prediction')
     plt.show()
-
-
-
-
-
-
