@@ -23,6 +23,7 @@ pip install metaicvi
 ## History
 
 - 6/14/2022: Initialize project.
+- 10/21/2022: Add previous projects as compatibility modules
 
 ## Usage
 
@@ -32,3 +33,6 @@ TODO
 
 - Authors:
   - Sasha Petrenko <sap625@mst.edu>
+  - Niklas Melton <nmmz76@mst.edu>
+- Projects:
+  - https://git.mst.edu/acil-group/meta_icvis_python
