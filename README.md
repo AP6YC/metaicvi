@@ -35,4 +35,4 @@ TODO
   - Sasha Petrenko <sap625@mst.edu>
   - Niklas Melton <nmmz76@mst.edu>
 - Projects:
-  - https://git.mst.edu/acil-group/meta_icvis_python
+  - [meta_icvis_python](https://git.mst.edu/acil-group/meta_icvis_python)

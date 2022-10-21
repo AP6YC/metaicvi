@@ -1,5 +1,6 @@
 import numpy as np
-from iCVIs import iCVI
+# from iCVIs import iCVI
+from cvi.compat import iCVI
 from scipy.stats import spearmanr
 from collections import deque
 from sktime.transformations.panel.rocket import Rocket
