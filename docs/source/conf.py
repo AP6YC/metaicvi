@@ -20,7 +20,7 @@ sys.path.insert(0, os.path.abspath('../../src/metaicvi'))
 # -- Project information -----------------------------------------------------
 
 project = 'metaicvi'
-copyright = '2022, Sasha Petrenko'
+copyright = '2023, Sasha Petrenko'
 author = 'Sasha Petrenko'
 
 # The full version, including alpha/beta/rc tags
