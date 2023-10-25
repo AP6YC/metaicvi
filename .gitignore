@@ -1,9 +1,19 @@
+# -----------------------------------------------------------------------------
+# PROJECT IGNORES
+# -----------------------------------------------------------------------------
+
 # IDE ignores
 .vscode/
 
-# Project ignores
+# Development/scratch folder
 _dev/
+
+# Autosummary generated folder
 **/_autosummary/
+
+# -----------------------------------------------------------------------------
+# PYTHON IGNORES
+# -----------------------------------------------------------------------------
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
