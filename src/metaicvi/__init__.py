@@ -4,7 +4,7 @@ metaicvi - Python library for the MetaICVI unsupervised learning/clustering metr
 
 __version__ = "0.0.1"
 
-from .lib import *
+# from .lib import *
 
 import param
 import math
