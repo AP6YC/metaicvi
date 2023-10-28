@@ -1,5 +1,27 @@
+"""
+    datasets.py
+
+# Description
+This file implements the dataset loading for the Meta-iCVI demonstration file.
+
+This includes the following UCI datasets:
+1. Wine - https://archive.ics.uci.edu/dataset/109/wine
+2. Leaf - https://archive.ics.uci.edu/dataset/288/leaf
+3. Cervical Cancer Behavior Risk - https://archive.ics.uci.edu/dataset/537/cervical+cancer+behavior+risk
+4. Iris - https://archive.ics.uci.edu/dataset/53/iris
+"""
+
+# -----------------------------------------------------------------------------
+# DEPENDENCIES
+# -----------------------------------------------------------------------------
+
 import numpy as np
 from sklearn.datasets import make_blobs
+
+
+# -----------------------------------------------------------------------------
+# CONSTANTS
+# -----------------------------------------------------------------------------
 
 DATASETS = [
     'wine',
@@ -8,8 +30,13 @@ DATASETS = [
     'iris'
 ]
 
+# -----------------------------------------------------------------------------
+# CLASSES
+# -----------------------------------------------------------------------------
+
 
 class Dataset:
+
     def __init__(self, name):
         if name == 'wine':
             data = np.vstack([np.array(line.split(',')) for line in open('data/wine.data').readlines() if line])
