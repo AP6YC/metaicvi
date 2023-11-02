@@ -9,14 +9,18 @@ This file demonstrates example usage of the Meta-iCVI method with a dataset load
 # DEPENDENCIES
 # -----------------------------------------------------------------------------
 
+# stdlib imports
 import random
+
+# External dependency imports
 import matplotlib.pyplot as plt
 import numpy as np
 from sklearn.cluster import KMeans
-from Meta_iCVIs import Meta_iCVI
-from datasets import Dataset
 from sklearn.model_selection import train_test_split
-from random import shuffle
+
+# Local module imports
+from metaicvi.compat.Meta_iCVIs import Meta_iCVI
+from metaicvi.compat.datasets import Dataset
 
 # -----------------------------------------------------------------------------
 # VARIABLES
@@ -52,7 +56,7 @@ def generate_data():
             Y_train = Y_train[ridx]
 
             if partition_quality == 'correct':
-                shuffle(cluster_labels)
+                random.shuffle(cluster_labels)
                 shuffle_func = lambda i: cluster_labels[i]
                 new_Y_train = np.array(Y_train)
                 new_Y_train = np.array(list(map(shuffle_func, new_Y_train)))
